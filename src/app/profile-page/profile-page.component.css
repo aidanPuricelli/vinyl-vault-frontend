@@ -1,0 +1,72 @@
+.content {
+    padding-top: 150px;
+    background-color: black;
+    text-align: center;
+}
+
+h1 {
+    color: white;
+    margin-top: 50px;
+}
+
+.profile-pic-container {
+    width: 250px;  
+    height: 250px;
+    border-radius: 50%;
+    overflow: hidden;   
+    margin: auto;
+    border: solid 4px white;
+    position: relative;
+}
+
+.profile-pic-container img {
+    display: block;
+    width: 100%; /* make sure it covers full width */
+    height: 100%; /* make sure it covers full height */
+    object-fit: cover; /* This will ensure the image covers the entire container */
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.profile-pic-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 50%; 
+    transition: background-color 0.3s;
+    z-index: 2;
+}
+
+.content {
+    height: 100%;
+    padding-bottom: 400px;
+}
+
+.profile-pic-container:hover::before {
+    background-color: rgba(0, 0, 0, 0.5); 
+}
+
+.profile-pic-container::after {
+    content: "click to change";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white; 
+    opacity: 0; 
+    z-index: 3; 
+    transition: opacity 0.3s;
+    font-size: 18px; 
+    pointer-events: none; 
+}
+
+.profile-pic-container:hover::after {
+    opacity: 1; 
+}

@@ -1,0 +1,111 @@
+<div class="top-container">
+    <app-logo-view></app-logo-view>
+</div>
+
+<h1 id="collec-name"> YOUR COLLECTION </h1>
+
+<div class="card-container">
+<div *ngFor="let vinyl of vinyls" class="card">
+    <h5 class="card-title">{{vinyl?.name}}</h5>
+    <img class="vinyl-img" src="{{vinyl?.imageUrl}}" alt="vinyl">
+    <div class="card-body">
+        <p class="card-text">{{vinyl?.artist}}</p>
+        <p class="card-text">{{vinyl?.year}}</p>
+        <div class="right-container">
+            <p class="card-text">${{vinyl?.price}}</p>
+            <p class="edit-text" id="edit-btn" (click)="openModal(vinyl, 'delete')">DELETE</p>
+            <p class="edit-text" id="edit-btn" (click)="openModal(vinyl, 'edit')">EDIT</p>
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="btn-container">
+<h1 id="add-btn" href="#" (click)="openModal(null, 'add')">+ADD</h1>
+</div>
+
+
+<div class="form-container" id="add-form">
+<h1>ADD RECORD</h1>
+<form #addForm="ngForm" (ngSubmit)="addVinyl(5, addForm)" class="form col-md-12 center-block">
+    <div class="form-group">
+        <input type="text" ngModel name="name" class="form-control input-lg" placeholder="Name">
+    </div>
+    <div class="form-group">
+        <input type="text" ngModel name="artist" class="form-control input-lg" placeholder="Artist">
+    </div>
+    <div class="form-group">
+        <input type="text" ngModel name="year" class="form-control input-lg" placeholder="Year">
+    </div>
+    <div class="form-group">
+        <input type="text" ngModel name="imageUrl" class="form-control input-lg" placeholder="ImageUrl">
+    </div>
+    <div class="form-group">
+        <input type="number" ngModel name="price" class="form-control input-lg" placeholder="Price">
+    </div>
+    <div class="form-group">
+        <button [disabled]="addForm.invalid" class="btn btn-primary btn-lg btn-block" type="submit">Save Changes</button>
+    </div>
+</form>
+</div>
+
+<div id="edit-form" class="modal show" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h1>Edit {{editVinyl?.name}}</h1>
+            <button type="button" class="close" aria-hidden="true" (click)="closeModal('edit')">×</button>
+        </div>
+        <div class="modal-body">
+            <form #editForm="ngForm" class="form col-md-12 center-block">
+            <div class="form-group">
+                <input type="text" ngModel="{{editVinyl?.name}}" name="name" class="form-control input-lg" placeholder="Name">
+            </div>
+            <input type="hidden" ngModel="{{editVinyl?.id}}" name="id" class="form-control" id="id" placeholder="id">
+            <div class="form-group">
+                <input type="text" ngModel="{{editVinyl?.artist}}" name="artist" class="form-control input-lg" placeholder="Artist">
+            </div>
+            <div class="form-group">
+                <input type="text" ngModel="{{editVinyl?.year}}" name="year" class="form-control input-lg" placeholder="Year">
+            </div>
+            <div class="form-group">
+                <input type="text" ngModel="{{editVinyl?.imageUrl}}" name="imageUrl" class="form-control input-lg" placeholder="Image URL">
+            </div>
+            <div class="form-group">
+                <input type="text" ngModel="{{editVinyl?.price}}" name="price" class="form-control input-lg" placeholder="Price">
+            </div>
+            <div class="form-group">
+                <button (click)="editVinylFunc(editForm.value)" class="btn btn-primary btn-lg btn-block">Save Changes</button>
+            </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+        <div class="col-md-1accordion2">
+            <button class="btn" aria-hidden="true" (click)="closeModal('edit')">Cancel</button>
+        </div>	
+        </div>
+    </div>
+</div>
+</div>
+
+<div id="delete-form" class="modal show" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h1>Remove "<span id="remove-text">{{deleteVinyl?.name}}</span>" from your collection?</h1>
+            <button type="button" class="close" aria-hidden="true" (click)="closeModal('delete')">×</button>
+        </div>
+        <div class="modal-footer">
+        <div class="col-md-1accordion2">
+            <button class="btn" aria-hidden="true" (click)="closeModal('delete')">No</button>
+            <button (click)="deleteVinylFunc(deleteVinyl?.id)" class="btn btn-danger" aria-hidden="true">Yes</button>
+        </div>	
+        </div>
+    </div>
+</div>
+</div>
+
+<app-footer></app-footer>
+
+<app-nav></app-nav>
+

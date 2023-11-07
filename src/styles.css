@@ -1,1 +1,291 @@
-/* You can add global styles to this file, and also import other style files */
+html {
+    background-color: black;
+}
+
+
+/* NAV BAR STYLINGS */
+
+
+app-nav {
+    z-index: 100;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+    border: solid 5px rgb(255, 255, 218);
+    box-shadow:0px 15px rgba(0, 0, 0, 0.1);
+}
+
+app-nav a {
+    text-decoration: none;
+    color: black;
+    color: rgb(173, 173, 173);
+    margin-left: 20px;
+    margin-right: 20px;
+    font-family: 'Teko', sans-serif;
+    font-size: 25px;
+}
+
+app-nav a:hover {
+    color: rgb(113, 113, 178);
+}
+
+.active {
+    color: white;
+}
+
+.active:hover { /* MAKE IT SO YOU CAN'T CLICK ON ACTIVE */
+    color: rgb(212, 212, 255);
+}
+
+app-vinyl-collection {
+    color: white;
+}
+
+/* Card Stylings */
+
+app-home .card-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    flex-direction: row;
+    background-color: black;
+}
+
+app-home #collec-name {
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-family: 'Oswald', sans-serif;
+    background-color: black;
+    padding-bottom: 10px;
+    padding-top: 5px;
+}
+
+app-home .card  {
+    width: 400px;
+    height: 350;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    background-color: white;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px; 
+    box-shadow: 5px 5px rgb(202, 26, 202);
+}
+app-home .card h5 {
+    margin-top: 10px;
+    font-family: 'Teko', sans-serif;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 40px;
+}
+
+
+app-home .vinyl-img {
+    width: 350px;
+    margin: auto;
+    margin-top: 5px;
+    border-radius: 10px;
+}
+
+app-home .card-body {
+    font-family: 'Source Code Pro', monospace;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+app-home .card-text {
+    margin-top: 0px;
+    font-size: 20px;
+}
+
+app-home .right-container p{
+    display: inline-block;
+}
+
+app-home .right-container {
+    width: 100%;
+    position: relative;
+}
+
+app-home .edit-text {
+    float: right;
+    font-family: 'Teko', sans-serif;
+    font-size: 30px;
+    color: rgb(52, 52, 52);
+    margin-left: 10px;
+}
+
+app-home .edit-text:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+/* FORM STYLINGS */
+
+app-home .form-container {
+    text-align: center;
+    font-family: 'Source Code Pro', monospace;
+    margin-top: 50px;
+    display: none;
+}
+
+app-home #add-btn {
+    font-family: 'Teko', sans-serif;
+    background-color: black;
+    color: white;
+    transition: 0.3s;
+    font-size: 48px;
+    padding: 10px;
+}
+
+app-home #add-btn:hover {
+    cursor: pointer;
+    color: rgb(182, 182, 182);
+    transition: 0.5s;
+}
+
+app-home .btn-container {
+    text-align: center;
+    width: 100%;
+    background-color: black;
+    margin-bottom: 30px;
+}
+
+/* Logo Stylings */
+
+app-home .top-container {
+    background-color: rgb(255, 255, 255);
+    padding-bottom: 100px;
+}
+
+app-logo-view .container{
+    background-color: transparent;
+    padding-top: 130px;
+
+}
+
+app-logo-view img{
+    background-color: transparent;
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+/* FOOTER STYLES */
+
+app-footer {
+    font-family: 'Teko', sans-serif;
+    font-size: 20px;
+}
+
+app-footer .container {
+    position: relative;
+    text-align: center;
+}
+
+
+app-footer p{
+    padding-bottom: 0px;
+}
+
+app-footer .container-right p{
+    padding-bottom: 25px;
+}
+
+app-footer .container-right a{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+/* Login Register Page Stylings */
+
+app-login-register-nav .nav-container{
+    background-color: black;
+    position: fixed;
+    top: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+    border: solid 5px rgb(255, 255, 218);
+    box-shadow:0px 15px rgba(0, 0, 0, 0.1);
+}
+
+app-login-register-nav a {
+    text-decoration: none;
+    color: black;
+    color: white;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-family: 'Teko', sans-serif;
+    font-size: 25px;
+}
+
+app-login .main-container{
+    margin-top: 100px;
+}
+
+app-login h1{
+    text-align: center;
+}
+
+app-register .main-container {
+    margin-top: 100px;
+}
+
+app-register h1{
+    text-align: center;
+}
+
+
+@media (max-width: 800px) {
+    app-logo-view img {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+#remove-text {
+    color: purple;
+}
+
+/* Some extra form stylings for login/register */
+
+app-login form {
+    padding: 50px;
+}
+
+app-register form {
+    padding: 50px;
+}
+
+app-login-register app-logo-view {
+    padding: 100px;
+}
+
+app-login-register .footer-container {
+    background-color: black;
+    color: white;
+    padding-top: 50px;
+}
+
+/* Nonsense */
+
+/* CHANGE MOBILE STYLINGS TO NO HOVER STYLINGS */
+
+
+
+
+
+
+
+
+
